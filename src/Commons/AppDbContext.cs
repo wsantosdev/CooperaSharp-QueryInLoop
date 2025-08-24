@@ -22,7 +22,8 @@ namespace CooperaSharp_QueryInLoop
                         .HasKey(c => c.Id);
 
             modelBuilder.Entity<Order>()
-                .HasKey(o => o.Id);
+                        .HasKey(o => o.Id);
+            
             modelBuilder.Entity<Order>()
                         .Property(o => o.CreationDate)
                         .HasConversion(v => v.ToString("o"), v => DateTime.Parse(v));
