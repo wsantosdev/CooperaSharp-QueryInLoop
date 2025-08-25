@@ -31,15 +31,15 @@ namespace CooperaSharp_QueryInLoop
         }
 
         [Benchmark]
-        public IList<CustomerIdentifiedOrderView> Solution()
+        public IList<CustomerIdentifiedOrderViewAsStruct> Solution()
         {
             using var dbContext = new AppDbContext();
-
+            
             var result = dbContext.Orders
                                   .Include(o => o.Customer)
                                   .AsNoTracking()
                                   .AsValueEnumerable()
-                                  .Select(order => new CustomerIdentifiedOrderView
+                                  .Select(order => new CustomerIdentifiedOrderViewAsStruct
                                   {
                                       OrderId = order.Id,
                                       CreationDate = order.CreationDate,
