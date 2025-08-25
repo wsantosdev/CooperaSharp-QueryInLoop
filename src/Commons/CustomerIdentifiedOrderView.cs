@@ -10,10 +10,5 @@ namespace CooperaSharp_QueryInLoop
     }
 
     [StructLayout(LayoutKind.Sequential, Pack = 4)]
-    public readonly struct CustomerIdentifiedOrderViewAsStruct
-    {
-        public required int OrderId { get; init; }
-        public required DateTime CreationDate { get; init; }
-        public required string CustomerName { get; init; }
-    }
+    public readonly record struct CustomerIdentifiedOrderViewAsStruct(int OrderId, DateTime CreationDate, string CustomerName);
 }
